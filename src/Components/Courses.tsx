@@ -20,7 +20,6 @@ function Courses() {
               <h3>The Complete Html Css Js Course</h3>
               <h6>1-Month</h6>
             </div>
-            <div className='heart'><Heart /></div>
           </div>
 
           <div className="row">
@@ -30,7 +29,6 @@ function Courses() {
               <h3>The Complete Html Css Js Course</h3>
               <h6>1-Month</h6>
             </div>
-            <div className='heart'><Heart /></div>
           </div>
           <div className="row">
             <img src="assets/images/Group.webp" alt="" />
@@ -39,7 +37,6 @@ function Courses() {
               <h3>The Complete Html Css Js Course</h3>
               <h6>1-Month</h6>
             </div>
-            <div className='heart'><Heart /></div>
           </div>
 
         </div>

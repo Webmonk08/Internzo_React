@@ -27,7 +27,6 @@ body {
   color: var(--text-color);
 }
 header {
-  position: fixed;
   width: 100%;
   right: 0;
   top: 0;
@@ -36,18 +35,19 @@ header {
   align-items: center;
   justify-content: space-between;
   background-color: transparent;
-  padding: 23px 13%;
+  padding: 23px 6%;
   transition: all 0.4s ease;
 }
 header.sticky {
+  position: fixed !important;
   background-color: var(--bg-color);
-  padding: 12px 13%;
+  padding: 12px 7%;
   box-shadow: 0px 4px 15px rgb(0 0 0 / 8%);
 }
 
 .logo img {
   height: auto;
-  width: 160px;
+  width: 200px;
   max-width: 100%;
 }
 .navbar {
@@ -173,6 +173,7 @@ section {
   padding: 20px 30px;
   box-shadow: -11.729px -11.729px -11.729px 32px rgb(255 255 255 / 15%);
   transition: all 0.4s ease;
+  background-color:rgb(255, 255, 255) ;
 }
 .container-box:hover {
   transform: translateY(-15px);
@@ -218,6 +219,7 @@ section {
   cursor: pointer;
   text-align: center;
   margin-top: 4rem;
+
 }
 
 .box img {
@@ -228,10 +230,11 @@ section {
 
 .box {
   padding: 25px 60px;
-  border: 1px solid #e9ecef;
+  border: 1px solid #ffffff;
+  background-color: #ffffff;
   border-radius: 20px;
   padding: 20px 30px;
-  box-shadow: -11.729px -11.729px -11.729px 32px rgb(255 255 255 / 15%);
+  box-shadow: -11.729px -11.729px -11.729px 32px rgba(255, 255, 255);
   transition: all 0.4s ease;
 }
 .box:hover {

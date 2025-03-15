@@ -7,6 +7,7 @@ import Cart from './Pages/Cart';
 import CoursesList from './Pages/CoursesList';
 import './App.css';
 import HeartPage from './Pages/HeartPage';
+import CourseDetails from './Pages/CourseDetails';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path='/HeartPage' element={<HeartPage />} />
             <Route path='/Courses' element={<CoursesList />} />
+            <Route path="/Courses/:courseName" element={<CourseDetails />} />
           </Routes>
         </BrowserRouter>
       </CartProvider>

@@ -3,6 +3,9 @@ import { ShoppingCart, Heart, UserCircle, XIcon, MenuIcon } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 
+
+
+
 function NavBar() {
   var menuicon: React.ReactElement = <MenuIcon />;
 
@@ -32,10 +35,8 @@ function NavBar() {
   return (
     <>
       <header>
-        <Link to="/">
-        <div className="logo">
-          <img src="assets/images/image-removebg-cropped.png" alt="" />
-        </div>
+        <Link to="/" className='logo'>
+          <img src="/assets/images/image-removebg-cropped.png" alt="" />
         </Link>
 
         <ul className="navbar">
@@ -45,13 +46,6 @@ function NavBar() {
           <li><a href="#about">About us</a></li>
           <li><a href='#contact'>Contact</a></li>
         </ul>
-
-        <div className="header-icons">
-          <Link to="/Cart"><ShoppingCart /></Link> {/* Link to the Cart route */}
-          <Link to="/HeartPage"><Heart color='black'/></Link>
-          <Link to="/User"><UserCircle /></Link>
-          <div id="menu" onClick={menubar}>{menuicon}</div>
-        </div>
       </header>
     </>
   );

@@ -14,7 +14,7 @@ function Home() {
         })
         .then(
           () => {
-            console.log('SUCCESS!');
+            window.alert('SUCCESS!');
           },
           (error) => {
             console.log('FAILED...', error.text);
@@ -31,7 +31,7 @@ function Home() {
         <p>Own Your Learning new skills Online</p>
         <div className="latter">
           <form ref={form} onSubmit={sendEmail}>
-            <input type="email" name="user_email" placeholder="Write Your Email" required />
+            <input type="text" name="user_email" placeholder="Write Your Email" required />
             <input type="submit" value="send" />
           </form>
         </div>
