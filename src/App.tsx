@@ -8,6 +8,7 @@ import CoursesList from './Pages/CoursesList';
 import './App.css';
 import HeartPage from './Pages/HeartPage';
 import CourseDetails from './Pages/CourseDetails';
+import AddressForm from './Components/Form';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
             <Route path='/HeartPage' element={<HeartPage />} />
             <Route path='/Courses' element={<CoursesList />} />
             <Route path="/Courses/:courseName" element={<CourseDetails />} />
+            <Route path="/Form/:courseName" element={<AddressForm />} />
           </Routes>
         </BrowserRouter>
       </CartProvider>

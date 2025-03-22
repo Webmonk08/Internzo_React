@@ -1,83 +1,104 @@
-import React, { FormEvent, useRef } from 'react';
-import Grid from '@mui/material/Grid';
-import FormLabel from '@mui/material/FormLabel';
-import OutlinedInput from '@mui/material/OutlinedInput';
-import { styled } from '@mui/material/styles';
-import emailjs from '@emailjs/browser';
-
-const FormGrid = styled(Grid)(() => ({
-    display: 'flex',
-    flexDirection: 'column',
-}));
+import React, { FormEvent, useRef, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import "../Css/form.css";
 
 export default function AddressForm() {
-    const formRef = useRef<HTMLFormElement>(null); // Form reference
+    const { courseName } = useParams<{ courseName: string }>();
+    const safeCourseName = courseName || "Unknown Course"; // Fallback value
+    const navigate = useNavigate();
 
-    const sendEmail = (e: FormEvent<HTMLFormElement>) => {
+    useEffect(() => {
+        // Disable body scroll when modal is open
+        document.body.classList.add("modal-open");
+        return () => {
+            document.body.classList.remove("modal-open");
+        };
+    }, []);
+
+    const handleClose = () => {
+        navigate(-1); // Go back to previous page
+    };
+
+    const formRef = useRef<HTMLFormElement>(null);
+
+    const sendDataToGoogleSheets = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         if (formRef.current) {
-            emailjs.sendForm(
-                'service_w3t17uv', // Your EmailJS Service ID
-                'template_5s16f4h', // Your EmailJS Template ID
-                formRef.current,
-                'JyHwk0wdw6SS0qP5x' // Your EmailJS Public Key
-            ).then(
-                () => {
-                    window.alert('Email Sent Successfully!');
-                },
-                (error) => {
-                    console.error('FAILED...', error.text);
+            const formData = new FormData(formRef.current);
+            const jsonData = Object.fromEntries(formData.entries());
+            jsonData.courseName = safeCourseName;
+
+
+            try {
+                const response = await fetch("http://localhost:5001/submit", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(jsonData),
+                });
+
+                const result = await response.json();
+                console.log(result);
+
+                if (response.ok) {
+                    alert("Data added successfully!");
+                } else {
+                    alert("Error: " + result.error);
                 }
-            );
+            } catch (error) {
+                console.error("Submission failed:", error);
+            }
         }
     };
 
     return (
-        <form ref={formRef} onSubmit={sendEmail}>
-            <Grid container spacing={3}>
-                <FormGrid item xs={12} md={6}>
-                    <FormLabel htmlFor="first-name">First name</FormLabel>
-                    <OutlinedInput id="first-name" name="first_name" placeholder="John" required size="small" />
-                </FormGrid>
-                <FormGrid item xs={12} md={6}>
-                    <FormLabel htmlFor="last-name">Last name</FormLabel>
-                    <OutlinedInput id="last-name" name="last_name" placeholder="Snow" required size="small" />
-                </FormGrid>
-                <FormGrid item xs={12}>
-                    <FormLabel htmlFor="email">Email</FormLabel>
-                    <OutlinedInput id="email" name="email" type="email" placeholder="example@example.com" required size="small" />
-                </FormGrid>
-                <FormGrid item xs={12}>
-                    <FormLabel htmlFor="address1">Address line 1</FormLabel>
-                    <OutlinedInput id="address1" name="address1" placeholder="Street name and number" required size="small" />
-                </FormGrid>
-                <FormGrid item xs={12}>
-                    <FormLabel htmlFor="address2">Address line 2</FormLabel>
-                    <OutlinedInput id="address2" name="address2" placeholder="Apartment, suite, unit, etc. (optional)" size="small" />
-                </FormGrid>
-                <FormGrid item xs={6}>
-                    <FormLabel htmlFor="city">City</FormLabel>
-                    <OutlinedInput id="city" name="city" placeholder="New York" required size="small" />
-                </FormGrid>
-                <FormGrid item xs={6}>
-                    <FormLabel htmlFor="state">State</FormLabel>
-                    <OutlinedInput id="state" name="state" placeholder="NY" required size="small" />
-                </FormGrid>
-                <FormGrid item xs={6}>
-                    <FormLabel htmlFor="zip">Zip / Postal code</FormLabel>
-                    <OutlinedInput id="zip" name="zip" placeholder="12345" required size="small" />
-                </FormGrid>
-                <FormGrid item xs={6}>
-                    <FormLabel htmlFor="country">Country</FormLabel>
-                    <OutlinedInput id="country" name="country" placeholder="United States" required size="small" />
-                </FormGrid>
+        <div className="form-container">
+            <div className="form-box">
+                <span className="close-btn" onClick={handleClose}>&times;</span>
+                <h2>Enroll For {safeCourseName}</h2>
+                <form ref={formRef} onSubmit={sendDataToGoogleSheets}> 
+                    <div>
+                        <label>First Name</label>
+                        <input type="text" name="first_name" required />
+                    </div>
 
-                {/* Submit button */}
-                <Grid item xs={12}>
-                    <button type="submit">Enroll Now</button>
-                </Grid>
-            </Grid>
-        </form>
+                    <div>
+                        <label>Last Name</label>
+                        <input type="text" name="last_name" required />
+                    </div>
+
+                    <div>
+                        <label>Email</label>
+                        <input type="email" name="email" required />
+                    </div>
+
+                    <div>
+                        <label>Phone Number</label>
+                        <input type="tel" name="phone" required />
+                    </div>
+                    <div>
+                        <label>Age</label>
+                        <select name="age" required>
+                            <option value="">Select age</option>
+                            {[...Array(59).keys()].map((age) => (
+                                <option key={age} value={age+1}>{age+1}</option>
+                            ))}
+                            <option key="60+" value="60+">60+</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label>Gender</label>
+                        <select name="gender" required>
+                            <option value="">Select gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <button type="submit" >Enroll</button>
+                </form>
+            </div>
+        </div>
     );
 }

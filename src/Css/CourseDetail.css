@@ -1,6 +1,6 @@
 .course-details-container {
     display: grid;
-    grid-template-columns: 1.5fr 2fr; /* Swapped */
+    grid-template-columns: 1fr 1.5fr; /* Swapped */
     gap: 50px;
     margin: auto;
     padding: 20px;
@@ -18,9 +18,11 @@
     width: 99%;
     border: 2px solid transparent;
     border-radius: 30px;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+
   }
   .left-container .course-img img{
-    width: 100%;
+    width: 99%;
     border-radius: 30px;
   }
 
@@ -200,6 +202,7 @@
   .course-details-container .skills-gained ul {
     list-style: none;
     padding: 0;
+    display: flex;
   }
   
   .course-details-container .skills-gained li {
@@ -227,8 +230,6 @@
   }
   
   .course-details-container .enrollment-options button {
-    background: #0073e6;
-    color: #fff;
     border: none;
     padding: 12px 20px;
     font-size: 18px;
@@ -244,7 +245,6 @@
     position: fixed;
     background-color: #ffffff;
     padding: 20px;
-    top: 20%;
   }
   .course-details-container .form .x-button {
     border: 2px solid black;
@@ -282,4 +282,112 @@
 
     }
   }
+/* From Uiverse.io by alexmaracinaru */ 
+.cta {
+  border: none;
+  background: none;
+  cursor: pointer;
+  position: relative;
+  left: 30%;
+  top: 30px;
+}
+
+.cta span {
+  padding-bottom: 7px;
+  letter-spacing: 4px;
+  font-size: 14px;
+  padding-right: 15px;
+  text-transform: uppercase;
+}
+
+.cta svg {
+  transform: translateX(-8px);
+  transition: all 0.3s ease;
+}
+
+.cta:hover svg {
+  transform: translateX(0);
+}
+
+.cta:active svg {
+  transform: scale(0.9);
+}
+
+.hover-underline-animation {
+  position: relative;
+  color: black;
+  padding-bottom: 20px;
+}
+
+.hover-underline-animation:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #000000;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.cta:hover .hover-underline-animation:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+/* From Uiverse.io by KINGFRESS */ 
+.enrollment-options div button {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+  background-color: #ffffff;
+  padding: 1em 2em;
+  border: none;
+  border-radius: .6rem;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.enrollment-options div button span:not(:nth-child(6)) {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 30px;
+  width: 40px;
+  background-color: #0c66ed;
+  border-radius: 50%;
+  transition: .6s ease;
+}
+
+.enrollment-options div button span:nth-child(6) {
+  position: relative;
+}
+
+.enrollment-options div button span:nth-child(1) {
+  transform: translate(-3.3em, -4em);
+}
+
+.enrollment-options div button span:nth-child(2) {
+  transform: translate(-6em, 1.3em);
+}
+
+.enrollment-options div button span:nth-child(3) {
+  transform: translate(-.2em, 1.8em);
+}
+
+.enrollment-options div button span:nth-child(4) {
+  transform: translate(3.5em, 1.4em);
+}
+
+.enrollment-options div button span:nth-child(5) {
+  transform: translate(3.5em, -3.8em);
+}
+
+.enrollment-options div button:hover span:not(:nth-child(6)) {
+  transform: translate(-50%, -50%) scale(4);
+  transition: 1.5s ease;
+}
   

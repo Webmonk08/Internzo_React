@@ -4,7 +4,6 @@ import all_courses, { Course } from '../Components/all_courses';
 import '../Css/CourseDetail.css';
 import emailjs from '@emailjs/browser';
 import { ArrowLeftRight, ArrowRightIcon, ChevronRight, Clock } from "lucide-react";
-import { SearchIcon } from 'lucide-react';
 import AddressForm from '../Components/Form';
 
 function CourseDetails() {
@@ -68,8 +67,25 @@ function CourseDetails() {
                             </Link>
                         ))}
                 </div>
-                <Link to="/Courses">
-                    <button className="show-more-btn">See Other Courses</button>
+                <Link to='/courses'>
+                    <button className="cta">
+                        <span className="hover-underline-animation"> See More</span>
+                        <svg
+                            id="arrow-horizontal"
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="30"
+                            height="10"
+                            viewBox="0 0 46 16"
+                        >
+                            <path
+                                id="Path_10"
+                                data-name="Path 10"
+                                d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z"
+                                transform="translate(30)"
+                            ></path>
+                        </svg>
+                    </button>
+
                 </Link>
             </div>
             <div className="left-container">
@@ -97,30 +113,30 @@ function CourseDetails() {
                     {selectedCourse.syllabus.map((module, index) => (
                         <div key={index} className="module">
                             <ChevronRight id='Arrow' size={50} />
-                            <h3>Module {index + 1}: {module.title}</h3>
+                            <h4>Module {index + 1}: {module.title}</h4>
                         </div>
                     ))}
                 </div>
-                <div className="instructors">
-                    <h2>Instructors</h2>
-                    {selectedCourse.instructors.map((instructor, index) => (
-                        <div key={index} className="instructor">
-                            <h3>{instructor.name}</h3>
-                            <p>{instructor.bio}</p>
-                        </div>
-                    ))}
-                </div>
+
                 <div className="enrollment-options">
-                    <h2>Enrollment Options</h2>
+                    <h2>Payment</h2>
                     <div>
                         <p>Price: {selectedCourse.Price}/-</p>
-                        <button onClick={() => SetClicked(true)}>Enroll Now</button>
+                        <Link to={`/Form/${selectedCourse.name}`}>
+                            <button onClick={() => SetClicked(true)}>
+                                <span className="circle1"></span>
+                                <span className="circle2"></span>
+                                <span className="circle3"></span>
+                                <span className="circle4"></span>
+                                <span className="circle5"></span>
+                                <span className="text">Enroll Now</span>
+                            </button>
+                        </Link>
                     </div>
                 </div>
             </div>
             <div className="form" style={{ display: Clicked ? 'block' : 'none' }}>
                 <div className='x-button' onClick={() => SetClicked(false)}>X</div>
-                <AddressForm />
             </div>
         </div>
     );

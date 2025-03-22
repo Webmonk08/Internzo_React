@@ -94,14 +94,6 @@ header {
   gap: 10px;
 }
 
-.courses-content-main {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, auto));
-  gap: 3rem;
-  align-items: center;
-  cursor: pointer;
-  margin-top: 4rem;
-}
 .row-main img {
   /* filter: grayscale(0.5) invert(0.5); */
   width: 100%;
@@ -113,7 +105,6 @@ header {
 .courses-content-main {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, auto));
-  gap: 3rem;
   align-items: center;
   cursor: pointer;
   margin-top: 4rem;
@@ -164,9 +155,13 @@ header {
 .course-text-main h3 {
   font-size: 24px;
   font-weight: 500;
-  line-height: 30px;
   margin: 15px 0 15px;
   transition: all 0.4s ease;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%; /* Adjust this based on your layout */
+  display: block;
 }
 .course-text-main h3:hover {
   color: var(--main-color);
@@ -214,7 +209,7 @@ header {
 }
 .courses-grid {
   display: flex;
-  gap: 2%;
+  /* gap: 2; */
   position: sticky;
   top: 0; /* Adjust this value based on your header height */
   z-index: 10;
@@ -241,10 +236,9 @@ header {
 .courses-content-main .course-text-main .sci li {
   display: flex;
   flex-direction: row;
-  gap: 10px;
   & > h6 {
     font-size: 0.8rem !important;
-    padding: .5em !important;
+    padding: 0.5em !important;
     color: #090909;
     padding: 0.7em 1.7em;
     cursor: pointer;
@@ -255,7 +249,7 @@ header {
     position: relative;
     top: 20px;
   }
-  &>h6:hover{
+  & > h6:hover {
     color: var(--main-color);
   }
 }
@@ -273,5 +267,4 @@ header {
   transform: translateY(0px);
   opacity: 1;
   color: var(--main-color);
-
 }

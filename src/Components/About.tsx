@@ -14,7 +14,7 @@ function About() {
           <h4>Best Courses</h4>
           <h5>Top rated Instructors</h5>
 
-          <button className="btn"><a href="#read">Read More</a></button>
+          <button className="btn"><a href="#read">Join Us</a></button>
 
         </div>
 

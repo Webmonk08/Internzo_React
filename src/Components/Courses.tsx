@@ -14,7 +14,7 @@ function Courses() {
 
         <div className="courses-content">
           <div className="row">
-            <img src="assets/images/Group.webp" alt="" />
+            <img src="assets/images/Webdev.jpg" alt="" />
             <div className="course-text">
               <h5>1000/-</h5>
               <h3>The Complete Html Css Js Course</h3>
@@ -23,7 +23,7 @@ function Courses() {
           </div>
 
           <div className="row">
-            <img src="assets/images/Group.webp" alt="" />
+            <img src="assets/images/AppDev.jpg" alt="" />
             <div className="course-text">
               <h5>1000/-</h5>
               <h3>The Complete Html Css Js Course</h3>
@@ -31,7 +31,7 @@ function Courses() {
             </div>
           </div>
           <div className="row">
-            <img src="assets/images/Group.webp" alt="" />
+            <img src="assets/images/Aiml.jpg" alt="" />
             <div className="course-text">
               <h5>1000/-</h5>
               <h3>The Complete Html Css Js Course</h3>
