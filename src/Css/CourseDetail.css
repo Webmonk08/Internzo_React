@@ -147,7 +147,12 @@
     .course-details-container .left-container {
       width: 100%;
     }
+    .course-details-container .skills-gained ul{
+      flex-direction: column;
+    }
   }
+
+
   
   .course-details-container .head {
     /* text-align: center; */
