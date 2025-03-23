@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function About() {
   return (
@@ -14,7 +15,7 @@ function About() {
           <h4>Best Courses</h4>
           <h5>Top rated Instructors</h5>
 
-          <button className="btn"><a href="#read">Join Us</a></button>
+          <button className="btn"><Link to="/read">Join Us</Link></button>
 
         </div>
 

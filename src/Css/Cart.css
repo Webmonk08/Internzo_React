@@ -9,7 +9,7 @@
   --h2-font: 2.6rem;
   --p-font: 1.1rem;
 }
-body {
+.cart-container {
   background-color: #f1f4f6;
 }
 header {

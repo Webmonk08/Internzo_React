@@ -9,6 +9,7 @@ import './App.css';
 import HeartPage from './Pages/HeartPage';
 import CourseDetails from './Pages/CourseDetails';
 import AddressForm from './Components/Form';
+import JoinForm from './Components/joinUs ';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path='/HeartPage' element={<HeartPage />} />
             <Route path='/Courses' element={<CoursesList />} />
+            <Route path='read' element={<JoinForm/>}/>
             <Route path="/Courses/:courseName" element={<CourseDetails />} />
             <Route path="/Form/:courseName" element={<AddressForm />} />
           </Routes>
