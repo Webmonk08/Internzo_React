@@ -9,9 +9,8 @@ function About() {
         </div>
 
         <div className="about-text">
-          <h2>Want to share Your Knowledge? Join Us Mentor</h2>
-          <p>High-definition video is video of Higher resolutionand high Standard-definition. while there is no
-            standardisation meaning</p>
+          <h2>Want to share Your Knowledge? Join Us as Mentor</h2>
+          <p>Join our team of passionate mentors and inspire the next generation of learners. Share your expertise, connect with like-minded professionals, and make a meaningful impact!</p>
           <h4>Best Courses</h4>
           <h5>Top rated Instructors</h5>
 

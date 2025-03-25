@@ -27,15 +27,15 @@ header {
   display: flex;
   height: 100px;
   align-items: center;
-  justify-content: space-around;
+  justify-content: flex-start;
   z-index: 1111;
   top: 10px;
-  left: 10%;
+  left:15%;
 }
 .search {
   display: flex;
-  align-items: center;
-  width: 80%;
+  width: 60%;
+
 }
 .search li {
   list-style: none;
@@ -46,14 +46,14 @@ header {
   border-right: 0px transparent;
   height: 50px;
   background-color: var(--bg-color);
-  border: 1px solid var(--main-color);
+  border: 1px solid ;
 }
 .search input {
   width: 80%;
   height: 50px;
   border-radius: 10px;
   background-color: var(--bg-color);
-  border: 1px solid var(--main-color);
+  border: 1px solid ;
   padding: 10px;
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
