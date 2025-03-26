@@ -1,5 +1,4 @@
 import React from 'react'
-import { Heart } from 'lucide-react'
 import { Link } from 'react-router-dom'
 // import all_courses from './all_courses'
 
@@ -16,7 +15,6 @@ function Courses() {
             <Link to="/Courses/Full Stack Devlopment">
               <img src="assets/images/Webdev.jpg" alt="" />
               <div className="course-text">
-                <h5>1000/-</h5>
                 <h3>The Complete Html Css Js Course</h3>
                 <h6>1-Month</h6>
               </div>
@@ -26,7 +24,6 @@ function Courses() {
             <Link to="/Courses/App Development">
             <img src="assets/images/AppDev.jpg" alt="" />
             <div className="course-text">
-              <h5>1000/-</h5>
               <h3>The Complete App Dev Course</h3>
               <h6>1-Month</h6>
             </div>
@@ -36,7 +33,6 @@ function Courses() {
           <Link to="/Courses/AIML">
             <img src="assets/images/Aiml.jpg" alt="" />
             <div className="course-text">
-              <h5>1000/-</h5>
               <h3>The Complete AI and ML Course</h3>
               <h6>1-Month</h6>
             </div>

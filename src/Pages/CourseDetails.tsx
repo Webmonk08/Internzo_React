@@ -3,8 +3,7 @@ import { Link, useParams, useNavigate } from 'react-router-dom';
 import all_courses, { Course } from '../Components/all_courses';
 import '../Css/CourseDetail.css';
 import emailjs from '@emailjs/browser';
-import { ArrowLeftRight, ArrowRightIcon, ChevronRight, Clock } from "lucide-react";
-import AddressForm from '../Components/Form';
+import { ChevronRight } from "lucide-react";
 
 function CourseDetails() {
     const form = useRef<HTMLFormElement>(null);
@@ -16,6 +15,10 @@ function CourseDetails() {
     const [selectedCourse, setSelectedCourse] = useState<Course | null>(null);
     const [showAllCourses, setShowAllCourses] = useState(false);
 
+
+    useEffect(() => {
+        window.scrollTo(0, 0); // Scroll to the top on mount
+    }, []);
     useEffect(() => {
         const newCourse = all_courses.find((c) => c.name === courseName);
         if (newCourse) setSelectedCourse(newCourse);

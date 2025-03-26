@@ -30,12 +30,11 @@ header {
   justify-content: flex-start;
   z-index: 1111;
   top: 10px;
-  left:15%;
+  left: 15%;
 }
 .search {
   display: flex;
   width: 60%;
-
 }
 .search li {
   list-style: none;
@@ -46,14 +45,14 @@ header {
   border-right: 0px transparent;
   height: 50px;
   background-color: var(--bg-color);
-  border: 1px solid ;
+  border: 1px solid;
 }
 .search input {
   width: 80%;
   height: 50px;
   border-radius: 10px;
   background-color: var(--bg-color);
-  border: 1px solid ;
+  border: 1px solid;
   padding: 10px;
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
@@ -109,6 +108,7 @@ header {
   cursor: pointer;
   margin-top: 4rem;
   transition: 0.4s ease all;
+  gap: 10px;
 }
 @keyframes gridchange {
   0% {
@@ -267,4 +267,44 @@ header {
   transform: translateY(0px);
   opacity: 1;
   color: var(--main-color);
+}
+@media (max-width: 1040px) {
+  .courses-content-main {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(27, 1fr);
+  }
+  .courses-content-main a:nth-child(1) {
+    grid-area: 1 / 1 / 4 / 4;
+  }
+  .courses-content-main a:nth-child(2) {
+    grid-area: 4 / 1 / 7 / 4;
+  }
+  .courses-content-main a:nth-child(3) {
+    grid-area: 7 / 1 / 10 / 4;
+  }
+  .courses-content-main a:nth-child(4) {
+    grid-area: 10 / 1 / 13 / 4;
+  }
+  .courses-content-main a:nth-child(5) {
+    grid-area: 13 / 1 / 16 / 4;
+  }
+  .courses-content-main a:nth-child(6) {
+    grid-area: 16 / 1 / 19 / 4;
+  }
+  .courses-content-main a:nth-child(7) {
+    grid-area: 19 / 1 / 22 / 4;
+  }
+  .courses-content-main a:nth-child(8) {
+    grid-area: 22 / 1 / 25 / 4;
+  }
+  .courses-content-main a:nth-child(9) {
+    grid-area: 25 / 1 / 28 / 4;
+  }
+  .search input{
+    width: auto;
+  }
+  a{
+    padding: 0;
+  }
 }

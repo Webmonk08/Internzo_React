@@ -1,5 +1,5 @@
 import React, { FormEvent, useRef, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import "../Css/form.css";
 
 export default function JoinForm() {

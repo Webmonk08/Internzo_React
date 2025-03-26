@@ -1,5 +1,4 @@
 import React from 'react';
-import { ShoppingCart, Heart, UserCircle, XIcon, MenuIcon } from 'lucide-react';
 import { Link ,useLocation} from 'react-router-dom';
 import { useEffect } from 'react';
 
@@ -7,17 +6,17 @@ import { useEffect } from 'react';
 
 
 function NavBar() {
-  var menuicon: React.ReactElement = <MenuIcon />;
+  // var menuicon: React.ReactElement = <MenuIcon />;
 
   const location = useLocation();
   const isHome = location.pathname === "/";
 
-  function menubar() {
-    let nav = document.querySelector(".navbar") as HTMLElement;
-    menuicon = <XIcon />;
-    nav.classList.toggle('open');
-    console.log(menuicon);
-  }
+  // function menubar() {
+  //   let nav = document.querySelector(".navbar") as HTMLElement;
+  //   menuicon = <XIcon />;
+  //   nav.classList.toggle('open');
+  //   console.log(menuicon);
+  // }
 
   useEffect(() => {
     const timeoutId = setTimeout(() => {
@@ -49,7 +48,6 @@ function NavBar() {
             <li><a href="#categories">Categories</a></li>
             <li><a href="#courses">Courses</a></li>
             <li><a href="#about">Join Us</a></li>
-            <li><a href="#contact">Contact</a></li>
           </ul>
 
         </ul>) : (
@@ -60,7 +58,6 @@ function NavBar() {
             <li><Link to="/#categories">Categories</Link></li>
             <li><Link to="/courses">Courses</Link></li>
             <li><Link to="/#about">Join Us</Link></li>
-            <li><Link to="/#contact">Contact</Link></li>
           </ul>
           </ul>
         ) }

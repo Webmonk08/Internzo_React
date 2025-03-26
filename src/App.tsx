@@ -1,6 +1,6 @@
 import React from 'react';
 import NavBar from './Components/NavBar'
-import CartProvider  from './context/CourseContext';
+import CartProvider from './context/CourseContext';
 import Home from './Pages/MainLayout';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Cart from './Pages/Cart';
@@ -10,6 +10,7 @@ import HeartPage from './Pages/HeartPage';
 import CourseDetails from './Pages/CourseDetails';
 import AddressForm from './Components/Form';
 import JoinForm from './Components/joinUs ';
+import ScrollToTop from './Components/ScrollToTop';
 
 
 function App() {
@@ -17,13 +18,14 @@ function App() {
     <>
       <CartProvider>
         <BrowserRouter>
+          <ScrollToTop />
           <NavBar />
           <Routes>
             <Route path="/Cart" element={<Cart />} />
             <Route path="/" element={<Home />} />
             <Route path='/HeartPage' element={<HeartPage />} />
             <Route path='/Courses' element={<CoursesList />} />
-            <Route path='read' element={<JoinForm/>}/>
+            <Route path='read' element={<JoinForm />} />
             <Route path="/Courses/:courseName" element={<CourseDetails />} />
             <Route path="/Form/:courseName" element={<AddressForm />} />
           </Routes>
