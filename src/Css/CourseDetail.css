@@ -25,6 +25,9 @@
     width: 99%;
     border-radius: 30px;
   }
+  #Module{
+    font-size: large;
+  }
 
   @media (max-width: 1184px) {
     .course-details-container {

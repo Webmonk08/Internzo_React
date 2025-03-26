@@ -13,9 +13,10 @@ function Contact() {
           <div>
             <h4>Socials</h4>
 
-            <li><a href="#facebook">Facebook</a></li>
-            <li><a href="#insta">Instagram</a></li>
-            <li><a href="#twitter">Twitter</a></li>
+            <li><a target="blank"href="https://www.instagram.com/internzo_edu?igsh=MXYwYWttNmVveXJ5Zg%3D%3D&utm_source=qr">Instagram</a></li>
+            <li><a href="#insta">Facebook</a></li>
+            <li><a target="blank" href="https://x.com/internzo?s=21">Twitter</a></li>
+            <li><a target="blank" href="https://www.linkedin.com/company/internzo/">Linked In</a></li>
           </div>
 
         </div>

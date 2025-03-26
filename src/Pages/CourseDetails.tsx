@@ -116,7 +116,7 @@ function CourseDetails() {
                     {selectedCourse.syllabus.map((module, index) => (
                         <div key={index} className="module">
                             <ChevronRight id='Arrow' size={50} />
-                            <h4>Module {index + 1}: {module.title}</h4>
+                            <h4><span id="Module">Module {index + 1}</span>: {module.title}</h4>
                         </div>
                     ))}
                 </div>
