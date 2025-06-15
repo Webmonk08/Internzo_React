@@ -12,7 +12,7 @@ function MainLayout() {
   return (
     <>
         <Home />
-        <Container/>
+        {/* <Container/> */}
         <Categories/>
         <Courses />
         <About />

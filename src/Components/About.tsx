@@ -1,25 +1,55 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { CheckCircle, Users, Award, BookOpen } from 'lucide-react';
 
-function About() {
+const About = () => {
+  const features = [
+    'Expert-led courses with real-world projects',
+    'Flexible learning schedule that fits your life',
+    'Industry-recognized certificates upon completion',
+    'Dedicated career support and mentorship'
+  ];
+
   return (
-    <section className="about" id="about">
-        <div className="about-img">
-          <img src="assets/images/Aboutbg.png" width="100%" alt=""/>
+    <section id="about" className="about">
+      <div className="container">
+        <div className="about-content">
+          {/* Text Content */}
+          <div className="about-text">
+            <div className="section-badge">
+              <span>ABOUT US</span>
+            </div>
+            <h2 className="about-title">
+              Empowering Your Learning Journey
+            </h2>
+            <p className="about-description">
+              At Internzo, we believe that quality education should be accessible to everyone. Our platform combines cutting-edge technology with expert instruction to deliver an unparalleled learning experience.
+            </p>
+            
+            <div className="about-features">
+              {features.map((feature, index) => (
+                <div key={index} className="about-feature">
+                  <CheckCircle size={20} className="about-feature-icon" />
+                  <span className="about-feature-text">{feature}</span>
+                </div>
+              ))}
+            </div>
+
+            <button className="btn-primary">
+              <span>Join Our Community</span>
+            </button>
+          </div>
+
+          {/* Image */}
+          <div className="about-image">
+            <img
+              src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800"
+              alt="Students learning together"
+            />
+          </div>
         </div>
+      </div>
+    </section>
+  );
+};
 
-        <div className="about-text">
-          <h2>Want to share Your Knowledge? Join Us as Mentor</h2>
-          <p>Join our team of passionate mentors and inspire the next generation of learners. Share your expertise, connect with like-minded professionals, and make a meaningful impact!</p>
-          <h4>Best Courses</h4>
-          <h5>Top rated Instructors</h5>
-
-          <button className="btn"><Link to="/read">Join Us</Link></button>
-
-        </div>
-
-      </section>
-  )
-}
-
-export default About
+export default About;

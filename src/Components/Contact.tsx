@@ -1,65 +1,89 @@
-import React from 'react'
-import { Link,useLocation } from 'react-router-dom';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-function Contact() {
-  const location = useLocation();
-  const isHome = location.pathname === "/";
+const Contact = () => {
+  const socialLinks = [
+    { name: 'Instagram', url: 'https://www.instagram.com/internzo_edu?igsh=MXYwYWttNmVveXJ5Zg%3D%3D&utm_source=qr' },
+    { name: 'Facebook', url: '#' },
+    { name: 'Twitter', url: 'https://x.com/internzo?s=21' },
+    { name: 'LinkedIn', url: 'https://www.linkedin.com/company/internzo/' }
+  ];
+
+  const quickLinks = [
+    { name: 'Home', path: '/' },
+    { name: 'Categories', path: '/#categories' },
+    { name: 'Courses', path: '/#courses' },
+    { name: 'About', path: '/#about' }
+  ];
+
+  const contactInfo = [
+    { label: 'Address', value: '2/34 Pothiyampallam, Karur-3' },
+    { label: 'Email', value: 'info@internzo.com' },
+    { label: 'Phone', value: '9344742778' }
+  ];
+
   return (
-
-    <section className="contact" id="contact">
-      <div className="main-contact">
-        <img src="assets/images/image-removebg-cropped.png" alt="" />
+    <section id="contact" className="contact">
+      <div className="container">
         <div className="contact-content">
-          <div>
-            <h4>Socials</h4>
-
-            <li><a target="blank"href="https://www.instagram.com/internzo_edu?igsh=MXYwYWttNmVveXJ5Zg%3D%3D&utm_source=qr">Instagram</a></li>
-            <li><a href="#insta">Facebook</a></li>
-            <li><a target="blank" href="https://x.com/internzo?s=21">Twitter</a></li>
-            <li><a target="blank" href="https://www.linkedin.com/company/internzo/">Linked In</a></li>
+          {/* Logo Section */}
+          <div className="contact-section">
+            <img 
+              src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=200" 
+              alt="Internzo Logo" 
+              className="contact-logo"
+            />
           </div>
 
-        </div>
-
-        <div className="contact-content">
-          <div>
-
-            <h4 >Quick Access</h4>
-            {isHome ? (
-              <>
-                <li><a href="/">Home</a></li>
-                <li><a href="#categories">Categories</a></li>
-                <li><a href="#courses">Courses</a></li>
-                <li><a href="#about">Join Us</a></li>
-              </>
-
-            ) : (
-
-
-              <>
-                <li><a href="/">Home</a></li>
-                <li><Link to="/#categories">Categories</Link></li>
-                <li><Link to="/courses">Courses</Link></li>
-                <li><Link to="/#about">Join Us</Link></li>
-              </>
-            )}
+          {/* Social Links */}
+          <div className="contact-section">
+            <h4 className="contact-title">Follow Us</h4>
+            <div className="contact-links">
+              {socialLinks.map((link, index) => (
+                <a
+                  key={index}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="contact-link"
+                >
+                  {link.name}
+                </a>
+              ))}
+            </div>
           </div>
-        </div>
 
+          {/* Quick Links */}
+          <div className="contact-section">
+            <h4 className="contact-title">Quick Links</h4>
+            <div className="contact-links">
+              {quickLinks.map((link, index) => (
+                <Link
+                  key={index}
+                  to={link.path}
+                  className="contact-link"
+                >
+                  {link.name}
+                </Link>
+              ))}
+            </div>
+          </div>
 
-
-        <div className="contact-content">
-          <div>
-            <h4>Contact Through</h4>
-            <li><a href="#add">2/34 Pothiyampallam,Karur-3</a></li>
-            <li><a href="#email">info@internzo.com</a></li>
-            <li><a href="#pho">9344742778</a></li>
+          {/* Contact Info */}
+          <div className="contact-section">
+            <h4 className="contact-title">Contact Info</h4>
+            <div className="contact-links">
+              {contactInfo.map((info, index) => (
+                <div key={index} className="contact-link">
+                  <strong>{info.label}:</strong> {info.value}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
-
     </section>
-  )
-}
+  );
+};
 
-export default Contact
+export default Contact;

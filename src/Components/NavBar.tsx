@@ -1,69 +1,98 @@
-import React from 'react';
-import { Link ,useLocation} from 'react-router-dom';
-import { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { Menu, X, BookOpen, User, Search } from 'lucide-react';
 
-
-
-
-function NavBar() {
-  // var menuicon: React.ReactElement = <MenuIcon />;
-
-  const location = useLocation();
-  const isHome = location.pathname === "/";
-
-  // function menubar() {
-  //   let nav = document.querySelector(".navbar") as HTMLElement;
-  //   menuicon = <XIcon />;
-  //   nav.classList.toggle('open');
-  //   console.log(menuicon);
-  // }
+const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-    const timeoutId = setTimeout(() => {
-      const header = document.querySelector("header") as HTMLElement;
-
-      if (header) {
-        window.addEventListener("scroll", () => {
-          header.classList.toggle("sticky", window.scrollY > 0);
-        });
-      }
-    }, 0);
-
-    return () => {
-      clearTimeout(timeoutId);
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
     };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const navItems = [
+    { name: 'Home', path: '/', hash: '' },
+    { name: 'Categories', path: '/', hash: '#categories' },
+    { name: 'Courses', path: '/', hash: '#courses' },
+    { name: 'About', path: '/', hash: '#about' },
+    { name: 'Contact', path: '/', hash: '#contact' }
+  ];
+
   return (
-    <>
+    <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
+      <div className="container">
+        <div className="header-content">
+          {/* Logo */}
+          <Link to="/" className="logo">
+            <div className="logo-icon">
+              <BookOpen size={24} />
+            </div>
+            <span className="logo-text">Internzo</span>
+          </Link>
 
-      <header>
-        <Link to="/" className='logo'>
-          <img src="/assets/images/image-removebg-cropped.png" alt="" />
-        </Link>
+          {/* Desktop Navigation */}
+          <nav className="nav">
+            {navItems.map((item) => (
+              <Link
+                key={item.name}
+                to={item.path + item.hash}
+                className="nav-link"
+              >
+                {item.name}
+              </Link>
+            ))}
+          </nav>
 
-        { isHome ? (
-        <ul className="navbar">
-          <ul className="navbar">
-            <li><a href="/">Home</a></li>
-            <li><a href="#categories">Categories</a></li>
-            <li><a href="#courses">Courses</a></li>
-            <li><a href="#about">Join Us</a></li>
-          </ul>
+          {/* Desktop Actions */}
+          <div className="header-actions">
+            <button className="search-btn">
+              <Search size={20} />
+            </button>
+            <Link to="/signin" className="signin-btn">
+              <User size={16} />
+              <span>Sign In</span>
+            </Link>
+          </div>
 
-        </ul>) : (
-          <ul className="navbar">
-            
-          <ul className="navbar">
-          <li><a href="/">Home</a></li>
-            <li><Link to="/#categories">Categories</Link></li>
-            <li><Link to="/courses">Courses</Link></li>
-            <li><Link to="/#about">Join Us</Link></li>
-          </ul>
-          </ul>
-        ) }
-      </header>
-    </>
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="mobile-menu-btn"
+          >
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      {isMenuOpen && (
+        <div className="mobile-menu">
+          <div className="mobile-menu-content">
+            {navItems.map((item) => (
+              <Link
+                key={item.name}
+                to={item.path + item.hash}
+                onClick={() => setIsMenuOpen(false)}
+                className="mobile-nav-link"
+              >
+                {item.name}
+              </Link>
+            ))}
+            <div className="mobile-menu-divider">
+              <Link to="/signin" className="mobile-signin-btn">
+                <User size={16} />
+                <span>Sign In</span>
+              </Link>
+            </div>
+          </div>
+        </div>
+      )}
+    </header>
   );
-}
+};
 
-export default NavBar;
+export default Header;
