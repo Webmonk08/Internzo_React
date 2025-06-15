@@ -56,30 +56,30 @@ export default function JoinForm() {
                 <form ref={formRef} onSubmit={sendDataToGoogleSheets}>
                     <div>
                         <label>First Name</label>
-                        <input type="text" name="first_name" required />
+                        <input type="text" title="FirstNamw" name="first_name" required />
                     </div>
 
                     <div>
                         <label>Last Name</label>
-                        <input type="text" name="last_name" required />
+                        <input type="text" title="LastName" name="last_name" required />
                     </div>
 
                     <div>
                         <label>Email</label>
-                        <input type="email" name="email" required />
+                        <input type="email" title="Email" name="email" required />
                     </div>
 
                     <div>
                         <label>Phone Number</label>
-                        <input type="tel" name="phone" required />
+                        <input type="tel" title="PhoneNum" name="phone" required />
                     </div>
                     <div>
                         <label>City</label>
-                        <input type="text" name="City" required />
+                        <input type="text" title="City" name="City" required />
                     </div>
                     <div>
                         <label>Area Of Intrest</label>
-                        <select name="age" required>
+                        <select title="Area of Intrest" name="AoI" required>
                             <option key="Web" value="Full Stack Dev">Full Stack Dev</option>
                             <option key="App" value="App Dev">App Dev</option>
                             <option key="Web3" value="Web3">Web3 Dev</option>
@@ -93,7 +93,7 @@ export default function JoinForm() {
 
                     <div>
                         <label>Gender</label>
-                        <select name="gender" required>
+                        <select title="gender" name="gender" required>
                             <option value="">Select gender</option>
                             <option value="Male">Male</option>
                             <option value="Female">Female</option>

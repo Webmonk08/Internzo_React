@@ -52,10 +52,7 @@ const Header = () => {
             <button className="search-btn">
               <Search size={20} />
             </button>
-            <Link to="/signin" className="signin-btn">
-              <User size={16} />
-              <span>Sign In</span>
-            </Link>
+
           </div>
 
           {/* Mobile Menu Button */}
@@ -82,12 +79,6 @@ const Header = () => {
                 {item.name}
               </Link>
             ))}
-            <div className="mobile-menu-divider">
-              <Link to="/signin" className="mobile-signin-btn">
-                <User size={16} />
-                <span>Sign In</span>
-              </Link>
-            </div>
           </div>
         </div>
       )}

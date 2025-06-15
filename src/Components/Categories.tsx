@@ -79,7 +79,6 @@ const Categories = () => {
               </div>
               <h3 className="category-title">{category.title}</h3>
               <p className="category-description">{category.description}</p>
-              <div className="category-students">{category.students} students</div>
             </div>
           ))}
         </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { CheckCircle, Users, Award, BookOpen } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const About = () => {
   const features = [
@@ -24,7 +25,7 @@ const About = () => {
             <p className="about-description">
               At Internzo, we believe that quality education should be accessible to everyone. Our platform combines cutting-edge technology with expert instruction to deliver an unparalleled learning experience.
             </p>
-            
+
             <div className="about-features">
               {features.map((feature, index) => (
                 <div key={index} className="about-feature">
@@ -33,10 +34,11 @@ const About = () => {
                 </div>
               ))}
             </div>
-
-            <button className="btn-primary">
-              <span>Join Our Community</span>
-            </button>
+            <Link to="/read" style={{textDecoration:"none"}}>
+              <button className="btn-primary" >
+                Join Us
+              </button>
+            </Link>
           </div>
 
           {/* Image */}

@@ -1,103 +1,329 @@
 .form-container {
     position: fixed;
-    top: 10%;
+    top: 0;
     left: 0;
     width: 100%;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.5);
+    background: linear-gradient(135deg, rgba(0, 123, 255, 0.1), rgba(255, 0, 150, 0.1)), 
+                rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 2222222;
-    overflow-y: auto; /* Ensures scrolling */
+    overflow-y: auto;
+    animation: fadeIn 0.3s ease-out;
+    user-select: none;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { 
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
 }
 
 .form-box {
-    background: white;
-    width: 90%; /* Adjust for small screens */
-    max-width: 400px; /* Prevent it from being too large */
-    padding: 3%;
-    border-radius: 8px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(145deg, #ffffff, #f8f9ff);
+    width: 90%;
+    max-width: 450px;
+    padding: 40px 35px;
+    border-radius: 20px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15),
+                0 10px 25px rgba(0, 123, 255, 0.1);
     position: relative;
-    max-height: 90vh; /* Ensure it fits */
-    overflow-y: auto; /* Allow inner scrolling if necessary */
+    max-height: 90vh;
+    overflow-y: auto;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    animation: slideUp 0.4s ease-out;
+}
+
+/* Custom scrollbar for form-box */
+.form-box::-webkit-scrollbar {
+    width: 6px;
+}
+
+.form-box::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 3px;
+}
+
+.form-box::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #007bff, #0056b3);
+    border-radius: 3px;
 }
 
 .close-btn {
     position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 40px;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
     cursor: pointer;
+    color: #6c757d;
+    transition: all 0.3s ease;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    hover-effect: transform scale(1.1);
+}
+
+.close-btn:hover {
+    color: #dc3545;
+    background: rgba(220, 53, 69, 0.1);
+    position: sticky;
+    transform: scale(1.1) rotate(90deg);
 }
 
 body.modal-open {
     overflow: hidden;
 }
 
-
-.form-container form div{
+.form-container form div {
     position: relative;
+    margin-bottom: 25px;
 }
+
 .form-container form {
     display: flex;
     flex-direction: column;
-    margin-top: 40px;
+    margin-top: 20px;
 }
+
 form h2 {
-    font-size: 24px;
-    font-weight: bold;
+    font-size: 28px;
+    font-weight: 700;
     text-align: center;
     margin-bottom: 10px;
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     position: relative;
-    left: -20%;
+    left: 0; /* Fixed the positioning issue */
+    line-height: 1.3;
 }
 
 form p {
-    font-size: 14px;
+    font-size: 15px;
     text-align: center;
-    color: gray;
-    margin-bottom: 20px;
+    color: #6c757d;
+    margin-bottom: 30px;
+    font-weight: 400;
 }
 
 form label {
     font-size: 14px;
     font-weight: 600;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
     display: block;
+    color: #2d3748;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+/* Input field styling */
+.form-container form input, 
+.form-container form select {
+    width: 100%;
+    padding: 15px 20px;
+    font-size: 15px;
+    border-radius: 12px;
+    border: 2px solid #e2e8f0;
+    margin-bottom: 5px; /* Reduced to make space for focus effects */
+    background: #ffffff;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+    font-family: inherit;
+    outline: none;
     position: relative;
 }
 
-.form-container form input, select {
-    width: 100%;
-    padding: 10px;
-    font-size: 14px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    margin-bottom: 15px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
+.form-container form input:focus, 
+.form-container form select:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1),
+                0 4px 12px rgba(0, 123, 255, 0.15);
+    transform: translateY(-2px);
 }
 
+.form-container form input:hover, 
+.form-container form select:hover {
+    border-color: #cbd5e0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
 
+/* Placeholder styling */
+.form-container form input::placeholder {
+    color: #a0aec0;
+    transition: color 0.3s ease;
+}
+
+.form-container form input:focus::placeholder {
+    color: #cbd5e0;
+}
+
+/* Select dropdown styling */
+.form-container form select {
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 16px;
+    cursor: pointer;
+    color: #2d3748;
+}
+
+.form-container form select option {
+    padding: 10px;
+    background: #ffffff;
+    color: #2d3748;
+}
+
+/* Button styling */
 form button {
-    padding: 12px;
+    padding: 16px 32px;
     font-size: 16px;
-    font-weight: bold;
-    background-color: #007bff;
+    font-weight: 700;
+    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
     color: white;
     border: none;
-    border-radius: 6px;
+    border-radius: 12px;
     cursor: pointer;
-    transition: background 0.3s;
-    width: 80%;
+    transition: all 0.3s ease;
+    width: 100%;
     margin-top: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+}
+
+form button:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+form button:hover:before {
+    left: 100%;
 }
 
 form button:hover {
-    background-color: #0056b3;
+    background: linear-gradient(135deg, #0056b3 0%, #004494 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 123, 255, 0.3);
+}
+
+form button:active {
+    transform: translateY(0);
+    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.2);
+}
+
+/* Input validation states */
+.form-container form input:valid {
+    border-color: #28a745;
+}
+
+
+/* Mobile responsiveness */
+@media (max-width: 480px) {
+    .form-box {
+        width: 95%;
+        padding: 30px 25px;
+        margin: 20px 0;
+        border-radius: 16px;
+    }
+    
+    form h2 {
+        font-size: 24px;
+    }
+    
+    .form-container form input, 
+    .form-container form select {
+        padding: 12px 16px;
+        font-size: 14px;
+    }
+    
+    form button {
+        padding: 14px 24px;
+        font-size: 15px;
+    }
+}
+
+/* Loading state for button */
+form button:disabled {
+    background: #6c757d;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Focus visible for accessibility */
+.form-container form input:focus-visible, 
+.form-container form select:focus-visible,
+form button:focus-visible,
+.close-btn:focus-visible {
+    outline: 2px solid #007bff;
+}
+
+/* Enhanced visual feedback */
+.form-container form div::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #007bff, #0056b3);
+    transition: width 0.3s ease;
+}
+
+.form-container form div:focus-within::after {
+    width: 100%;
+}
+
+/* Subtle animation for form elements */
+.form-container form div {
+    animation: slideInLeft 0.4s ease-out forwards;
+    opacity: 0;
+}
+
+.form-container form div:nth-child(1) { animation-delay: 0.1s; }
+.form-container form div:nth-child(2) { animation-delay: 0.2s; }
+.form-container form div:nth-child(3) { animation-delay: 0.3s; }
+.form-container form div:nth-child(4) { animation-delay: 0.4s; }
+.form-container form div:nth-child(5) { animation-delay: 0.5s; }
+.form-container form div:nth-child(6) { animation-delay: 0.6s; }
+.form-container form div:nth-child(7) { animation-delay: 0.7s; }
+
+form button {
+    animation: slideInLeft 0.4s ease-out 0.8s forwards;
+    opacity: 0;
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }

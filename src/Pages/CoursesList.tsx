@@ -3,14 +3,12 @@ import '../Css/Cart.css';
 import { SearchIcon, Filter, Grid, List, Star, Clock, Users } from 'lucide-react';
 import all_courses, { Course } from '../Components/all_courses';
 import Contact from '../Components/Contact';
-import { useCart } from '../context/CourseContext';
 import { Link } from 'react-router-dom';
 
 function CoursesList() {
     const [likedCourses, setLikedCourses] = useState<{ [key: string]: boolean }>({});
     const [searchTerm, setSearchTerm] = useState<string>('');
     const [selectedCategory, setSelectedCategory] = useState<string>('All');
-    const { addToCart, addTofav } = useCart();
     const [isSideContainerVisible, setIsSideContainerVisible] = useState<boolean>(false);
     const [selectedCourse, setSelectedCourse] = useState<Course | null>(null);
     const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
@@ -125,7 +123,6 @@ function CoursesList() {
                                                 <div className="course-footer">
                                                     <div className="course-price">
                                                         <span className="price-current">${item.Price}</span>
-                                                        <span className="price-original">${item.Price * 2}</span>
                                                     </div>
                                                     <button className="enroll-btn">
                                                         Enroll Now
