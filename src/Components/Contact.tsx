@@ -11,9 +11,9 @@ const Contact = () => {
 
   const quickLinks = [
     { name: 'Home', path: '/' },
-    { name: 'Categories', path: '/#categories' },
-    { name: 'Courses', path: '/#courses' },
-    { name: 'About', path: '/#about' }
+    { name: 'Categories', path: '#categories' },
+    { name: 'Courses', path: '#courses' },
+    { name: 'About', path: '#about' }
   ];
 
   const contactInfo = [
@@ -58,13 +58,13 @@ const Contact = () => {
             <h4 className="contact-title">Quick Links</h4>
             <div className="contact-links">
               {quickLinks.map((link, index) => (
-                <Link
+                <a
                   key={index}
-                  to={link.path}
+                  href={link.path}
                   className="contact-link"
                 >
                   {link.name}
-                </Link>
+                </a>
               ))}
             </div>
           </div>

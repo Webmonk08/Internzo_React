@@ -37,19 +37,19 @@ const Header = () => {
           {/* Desktop Navigation */}
           <nav className="nav">
             {navItems.map((item) => (
-              <Link
+              <a
                 key={item.name}
-                to={item.path + item.hash}
+                href={item.hash}
                 className="nav-link"
               >
                 {item.name}
-              </Link>
+              </a>
             ))}
           </nav>
 
           {/* Desktop Actions */}
           <div className="header-actions">
-            <button className="search-btn">
+            <button type='button' title='search' className="search-btn">
               <Search size={20} />
             </button>
 
@@ -70,14 +70,14 @@ const Header = () => {
         <div className="mobile-menu">
           <div className="mobile-menu-content">
             {navItems.map((item) => (
-              <Link
+              <a
                 key={item.name}
-                to={item.path + item.hash}
+                href={item.hash}
                 onClick={() => setIsMenuOpen(false)}
                 className="mobile-nav-link"
               >
                 {item.name}
-              </Link>
+              </a>
             ))}
           </div>
         </div>
