@@ -21,6 +21,7 @@ const Courses = () => {
         {/* Courses Grid */}
         <div className="courses-grid">
           {all_courses.slice(0,4).map((course) => (
+            <Link to={`/Courses/${course.name}`}>
             <div key={course.name} className="course-card">
               <img src={course.image} alt={course.name} className="course-image" />
               <div className="course-content">
@@ -35,6 +36,7 @@ const Courses = () => {
                 </div>
               </div>
             </div>
+            </Link>
           ))}
         </div>
 
