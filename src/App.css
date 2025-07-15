@@ -19,7 +19,9 @@ body {
   background: var(--bg-color);
   overflow-x: hidden;
 }
-
+a{
+  text-decoration: none;
+}
 /* CSS Variables */
 :root {
   --bg-color: #ffffff;
@@ -218,6 +220,8 @@ body {
   border-radius: var(--radius-xl);
   color: white;
   transition: var(--transition);
+  user-select: none;
+  -webkit-user-select : none;
 }
 
 .logo:hover .logo-icon {
@@ -923,6 +927,7 @@ body {
   color: var(--main-color);
   padding: 1rem 2rem;
   border: 2px solid var(--main-color);
+
   border-radius: 9999px;
   font-weight: 600;
   cursor: pointer;
@@ -931,7 +936,6 @@ body {
 }
 
 .btn-outline:hover {
-  background: var(--main-color);
   color: white;
   transform: translateY(-2px);
   box-shadow: var(--shadow-lg);

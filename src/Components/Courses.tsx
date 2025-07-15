@@ -9,9 +9,6 @@ const Courses = () => {
       <div className="container">
         {/* Header */}
         <div className="section-header">
-          <div className="section-badge">
-            <span>COURSES</span>
-          </div>
           <h2 className="section-title">Popular Courses</h2>
           <p className="section-description">
             Discover our most popular courses designed by industry experts to help you advance your career.

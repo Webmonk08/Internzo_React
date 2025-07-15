@@ -58,9 +58,6 @@ const Categories = () => {
       <div className="container">
         {/* Header */}
         <div className="section-header">
-          <div className="section-badge">
-            <span>CATEGORIES</span>
-          </div>
           <h2 className="section-title">Popular Categories</h2>
           <p className="section-description">
             Explore our comprehensive range of courses designed to help you master the skills that matter most in today's digital world.
