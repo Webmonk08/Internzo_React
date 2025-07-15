@@ -58,7 +58,7 @@ const Categories = () => {
       <div className="container">
         {/* Header */}
         <div className="section-header">
-          <h2 className="section-title">Popular Categories</h2>
+          <h2 className="section-title">Popular Courses We Provide</h2>
           <p className="section-description">
             Explore our comprehensive range of courses designed to help you master the skills that matter most in today's digital world.
           </p>
